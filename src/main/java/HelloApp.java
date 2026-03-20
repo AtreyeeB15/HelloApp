@@ -1,15 +1,16 @@
 public class HelloApp {
     public static void main(String[] args) {
-        String names;
-
-        if (args.length > 0) {
-            // Join all arguments with a comma and space
-            names = String.join(", ", args);
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
         } else {
-            // Fallback to default
-            names = "World";
+            StringBuilder names = new StringBuilder();
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", ");
+                }
+                names.append(name);
+            }
+            System.out.println("Hello, " + names.toString() + "!");
         }
-
-        System.out.println("Hello, " + names + "!");
     }
 }
