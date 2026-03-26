@@ -3,16 +3,9 @@ public class HelloApp {
         if (args.length == 0) {
             System.out.println("Hello, World!");
         } else {
-            StringBuilder nameBuilder = new StringBuilder();
-
-            for (String name : args) {
-                nameBuilder.append(name).append(", ");
-            }
-
-            String finalNames = "";
-            if (nameBuilder.length() > 0) {
-                finalNames = nameBuilder.substring(0, nameBuilder.length() - 2);
-            }
+            // String.join automatically handles commas between names
+            // No trailing comma is ever added!
+            String finalNames = String.join(", ", args);
 
             System.out.println("Hello, " + finalNames + "!");
         }
